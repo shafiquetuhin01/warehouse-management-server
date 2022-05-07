@@ -25,7 +25,7 @@ async function run(){
     try{
         await client.connect();
         const myCollection = client.db('firmHouse').collection('allAnimals');
-        app.get('/service',async(req, res)=>{
+        app.get('/collection',async(req, res)=>{
             const query = {};
             const cursor = myCollection.find(query);
             const services = await cursor.toArray();
