@@ -32,7 +32,13 @@ async function run() {
       const service = await myCollection.findOne(query);
       res.send(service);
     });
-
+    app.get('/collection/:id', async (req, res) => {
+      const id = req.params.id;
+      console.log(id);
+      const query = { _id: ObjectId(id) };
+      const update = await myCollection.findOne(query);
+      res.send(update);
+  });
     app.post('/collection', async (req, res) => {
       const newService = req.body;
       const result = await myCollection.insertOne(newService);
